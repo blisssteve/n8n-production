@@ -32,6 +32,8 @@ openssl rand -hex 32
 
 The encryption key MUST match the source instance for credential migration.
 
+Retrieve it from the source instance at deploy time and set it in Dokploy as a secret. Do not commit the actual key to git.
+
 ```bash
 # On vultr1
 cat /opt/n8n/config | jq -r '.encryptionKey'

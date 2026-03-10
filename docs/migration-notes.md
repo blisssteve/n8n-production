@@ -29,13 +29,8 @@ Target: Dokploy cluster (`dokploy-cloud`)
 **CRITICAL**: The encryption key must be identical for credentials to decrypt.
 
 Source location: `/opt/n8n/config`
-```json
-{
-  "encryptionKey": "CdS9liwKKR0wT1Dz8B6F9pkz374cVJ3y"
-}
-```
 
-Set `N8N_ENCRYPTION_KEY` in Dokploy environment to this exact value.
+Do **not** store the real key in git. Read it from the source host at migration time and set `N8N_ENCRYPTION_KEY` in Dokploy as a secret.
 
 ## Community Nodes Strategy
 
