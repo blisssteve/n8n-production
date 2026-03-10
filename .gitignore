@@ -1,0 +1,24 @@
+# Environment files (secrets)
+.env
+.env.local
+.env.*.local
+
+# Docker volumes (should never be in git)
+volumes/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Temporary files
+tmp/
+temp/
