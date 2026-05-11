@@ -94,6 +94,16 @@ services:
       N8N_COMMUNITY_PACKAGES_ALLOW_TOOL_USAGE: "true"
       N8N_CUSTOM_EXTENSIONS: /home/node/.n8n/custom/nodes
 
+      # User management email / SMTP (Resend)
+      N8N_EMAIL_MODE: ${N8N_EMAIL_MODE:-smtp}
+      N8N_SMTP_HOST: ${N8N_SMTP_HOST:-smtp.resend.com}
+      N8N_SMTP_PORT: ${N8N_SMTP_PORT:-465}
+      N8N_SMTP_USER: ${N8N_SMTP_USER:-resend}
+      N8N_SMTP_PASS: ${N8N_SMTP_PASS}
+      N8N_SMTP_SENDER: "${N8N_SMTP_SENDER:-n8n <n8n@emeraldvet.com>}"
+      N8N_SMTP_SSL: ${N8N_SMTP_SSL:-true}
+      N8N_SMTP_STARTTLS: ${N8N_SMTP_STARTTLS:-false}
+
       # Security
       N8N_BLOCK_ENV_ACCESS_IN_NODE: "false"
       N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS: "true"
