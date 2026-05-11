@@ -35,7 +35,7 @@ services:
       - n8n-network
 
   n8n:
-    image: docker.n8n.io/n8nio/n8n:latest
+    image: docker.n8n.io/n8nio/n8n:2.20.6
     restart: unless-stopped
     depends_on:
       postgres:
@@ -93,6 +93,13 @@ services:
       N8N_COMMUNITY_PACKAGES_ENABLED: "true"
       N8N_COMMUNITY_PACKAGES_ALLOW_TOOL_USAGE: "true"
       N8N_CUSTOM_EXTENSIONS: /home/node/.n8n/custom/nodes
+
+      # User management instance owner (enable temporarily to repair/provision owner metadata)
+      N8N_INSTANCE_OWNER_MANAGED_BY_ENV: ${N8N_INSTANCE_OWNER_MANAGED_BY_ENV:-false}
+      N8N_INSTANCE_OWNER_EMAIL: ${N8N_INSTANCE_OWNER_EMAIL:-}
+      N8N_INSTANCE_OWNER_FIRST_NAME: ${N8N_INSTANCE_OWNER_FIRST_NAME:-}
+      N8N_INSTANCE_OWNER_LAST_NAME: ${N8N_INSTANCE_OWNER_LAST_NAME:-}
+      N8N_INSTANCE_OWNER_PASSWORD_HASH: ${N8N_INSTANCE_OWNER_PASSWORD_HASH:-}
 
       # User management email / SMTP (Resend)
       N8N_EMAIL_MODE: ${N8N_EMAIL_MODE:-smtp}
