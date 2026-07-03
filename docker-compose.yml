@@ -154,7 +154,7 @@ services:
       traefik.docker.network: dokploy-network
 
   task-runners:
-    image: n8nio/runners:latest
+    image: n8nio/runners:2.28.5
     restart: unless-stopped
     depends_on:
       - n8n
