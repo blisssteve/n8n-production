@@ -136,7 +136,7 @@ services:
 
       # AI Assistant preview (instance-ai) via OmniRoute over Tailscale
       N8N_ENABLED_MODULES: ${N8N_ENABLED_MODULES:-instance-ai}
-      N8N_INSTANCE_AI_MODEL: ${N8N_INSTANCE_AI_MODEL:-glm/glm-5.2-max}
+      N8N_INSTANCE_AI_MODEL: ${N8N_INSTANCE_AI_MODEL:-openai/glm/glm-5.2-max}
       N8N_INSTANCE_AI_MODEL_URL: ${N8N_INSTANCE_AI_MODEL_URL:-http://100.67.233.49:20129/v1}
       N8N_INSTANCE_AI_MODEL_API_KEY: ${N8N_INSTANCE_AI_MODEL_API_KEY}
       N8N_INSTANCE_AI_SANDBOX_ENABLED: "true"
