@@ -6,7 +6,7 @@ Production n8n deployment for Emerald Vet, designed for Dokploy.
 
 ### Phase 1 (Current)
 - **Postgres 16** - Primary database (migrating from SQLite)
-- **n8n 2.12.0** - Single main instance (no workers yet)
+- **n8n 2.32.6** - Single main instance (no workers yet)
 - **Task Runners** - External mode for Python support
 - **Filesystem binary storage** - Local volumes (R2 comes later)
 
@@ -119,10 +119,12 @@ Install via n8n UI or add to a custom image.
 
 | Volume | Purpose | Backup |
 |--------|---------|--------|
-| `n8n_postgres_data` | Postgres data | Yes (Dokploy Volume Backups) |
-| `n8n_data` | n8n config, workflows | Yes (Dokploy Volume Backups) |
-| `n8n_binary_data` | Binary file storage | Yes (Dokploy Volume Backups) |
-| `n8n_custom_nodes` | Custom community nodes | Yes (Dokploy Volume Backups) |
+| `n8n_postgres_data` | Postgres data | Logical `pg_dump` is authoritative; physical volume backup is disabled |
+| `n8n_data` | n8n config and local state | Daily Dokploy volume backup |
+| `n8n_binary_data` | Binary file storage | Daily Dokploy volume backup |
+| `n8n_custom_nodes` | Custom community nodes | Daily Dokploy volume backup |
+
+See [BACKUP.md](BACKUP.md) for schedules, retention, restore order, and verification gates.
 
 ## Networking
 
