@@ -6,7 +6,7 @@ Production n8n deployment for Emerald Vet, designed for Dokploy.
 
 ### Phase 1 (Current)
 - **Postgres 16** - Primary database (migrating from SQLite)
-- **n8n 2.32.6** - Single main instance (no workers yet)
+- **n8n 2.32.7** - Single main instance (no workers yet)
 - **Task Runners** - External mode for Python support
 - **Filesystem binary storage** - Local volumes (R2 comes later)
 
