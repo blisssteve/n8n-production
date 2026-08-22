@@ -39,7 +39,7 @@ services:
           - n8n-postgres
 
   n8n:
-    image: docker.n8n.io/n8nio/n8n:2.34.6
+    image: docker.n8n.io/n8nio/n8n:2.35.7
     restart: unless-stopped
     depends_on:
       postgres:
@@ -233,7 +233,7 @@ services:
       - n8n-network
 
   task-runners:
-    image: n8nio/runners:2.34.6
+    image: n8nio/runners:2.35.7
     restart: unless-stopped
     depends_on:
       - n8n
