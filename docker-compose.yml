@@ -138,8 +138,12 @@ services:
       N8N_VERSION_NOTIFICATIONS_ENABLED: "true"
       N8N_DIAGNOSTICS_ENABLED: "true"
 
-      # AI Assistant preview; model and sandbox are configured in the n8n UI.
+      # AI Assistant preview; model settings remain managed in the n8n UI.
       N8N_ENABLED_MODULES: ${N8N_ENABLED_MODULES:-instance-ai}
+      N8N_INSTANCE_AI_SANDBOX_ENABLED: ${N8N_INSTANCE_AI_SANDBOX_ENABLED:-true}
+      N8N_INSTANCE_AI_SANDBOX_PROVIDER: ${N8N_INSTANCE_AI_SANDBOX_PROVIDER:-n8n-sandbox}
+      N8N_INSTANCE_AI_SANDBOX_API_URL: ${N8N_INSTANCE_AI_SANDBOX_API_URL:-http://sandbox-api:8080}
+      N8N_INSTANCE_AI_SANDBOX_API_KEY: ${N8N_INSTANCE_AI_SANDBOX_API_KEY}
 
     volumes:
       # Named volume for n8n data (workflows, credentials, binary data)
