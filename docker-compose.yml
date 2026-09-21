@@ -162,6 +162,7 @@ services:
       traefik.http.routers.n8n-prod.rule: Host(`${N8N_HOST:-n8n.emerald.vet}`)
       traefik.http.routers.n8n-prod.entrypoints: websecure
       traefik.http.routers.n8n-prod.tls: "true"
+      traefik.http.routers.n8n-prod.service: n8n-prod
       traefik.http.services.n8n-prod.loadbalancer.server.port: "5678"
       # Attach to Dokploy's Traefik network
       traefik.docker.network: dokploy-network
