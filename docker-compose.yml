@@ -169,7 +169,7 @@ services:
       traefik.docker.network: dokploy-network
 
   sandbox-certs:
-    image: n8nio/n8n-sandbox-service-api:latest
+    image: n8nio/n8n-sandbox-service-api:1.7.0@sha256:cd41b40dc7e1b05cc54f4a4398941a808225cbf601f0c6592feb7ee6ae0d7713
     user: "0:0"
     entrypoint: ["sh", "-c"]
     command:
@@ -185,7 +185,7 @@ services:
       - n8n-network
 
   sandbox-api:
-    image: n8nio/n8n-sandbox-service-api:latest
+    image: n8nio/n8n-sandbox-service-api:1.7.0@sha256:cd41b40dc7e1b05cc54f4a4398941a808225cbf601f0c6592feb7ee6ae0d7713
     depends_on:
       sandbox-certs:
         condition: service_completed_successfully
@@ -206,7 +206,7 @@ services:
       - n8n-network
 
   sandbox-runner-1:
-    image: n8nio/n8n-sandbox-service-runner-dind:latest
+    image: n8nio/n8n-sandbox-service-runner-dind:1.7.0@sha256:12907547996b04c5586267de461469d5a1afead3469a854b725f3a3c8138a089
     privileged: true
     depends_on:
       - sandbox-api
@@ -218,7 +218,7 @@ services:
       SANDBOX_RUNNER_CONTROL_GRPC_LISTEN_ADDR: ":9091"
       SANDBOX_RUNNER_CONTROL_GRPC_ADVERTISE_ADDR: sandbox-runner-1:9091
       SANDBOX_RUNNER_ID: sandbox-runner-1
-      SANDBOX_RUNNER_DOCKER_SANDBOX_IMAGE: n8nio/n8n-sandbox-service-sandbox:latest
+      SANDBOX_RUNNER_DOCKER_SANDBOX_IMAGE: n8nio/n8n-sandbox-service-sandbox:1.7.0@sha256:6b962b35365b19ec0b5574091f5f9580d493e4a344bb8abda83574e679cfd816
       SANDBOX_RUNNER_REGISTRATION_GRPC_CA_FILE: /tls/runner/ca.crt
       SANDBOX_RUNNER_REGISTRATION_GRPC_CERT_FILE: /tls/runner/grpc-client.crt
       SANDBOX_RUNNER_REGISTRATION_GRPC_KEY_FILE: /tls/runner/grpc-client.key
