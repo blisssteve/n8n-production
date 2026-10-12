@@ -143,8 +143,8 @@ services:
       N8N_ENABLED_MODULES: ${N8N_ENABLED_MODULES:-instance-ai,agents}
       N8N_INSTANCE_AI_SANDBOX_ENABLED: ${N8N_INSTANCE_AI_SANDBOX_ENABLED:-true}
       N8N_INSTANCE_AI_SANDBOX_PROVIDER: ${N8N_INSTANCE_AI_SANDBOX_PROVIDER:-n8n-sandbox}
-      N8N_INSTANCE_AI_SANDBOX_API_URL: ${N8N_INSTANCE_AI_SANDBOX_API_URL:-http://sandbox-api:8080}
-      N8N_INSTANCE_AI_SANDBOX_API_KEY: ${N8N_INSTANCE_AI_SANDBOX_API_KEY}
+      N8N_SANDBOX_SERVICE_URL: ${N8N_SANDBOX_SERVICE_URL:-http://sandbox-api:8080}
+      N8N_SANDBOX_SERVICE_API_KEY: ${N8N_SANDBOX_SERVICE_API_KEY}
 
     volumes:
       # Named volume for n8n data (workflows, credentials, binary data)
@@ -199,7 +199,7 @@ services:
       SANDBOX_API_RUNNER_CONTROL_GRPC_TLS_CA_FILE: /tls/api/ca.crt
       SANDBOX_API_RUNNER_CONTROL_GRPC_TLS_CERT_FILE: /tls/api/control-grpc-api-client.crt
       SANDBOX_API_RUNNER_CONTROL_GRPC_TLS_KEY_FILE: /tls/api/control-grpc-api-client.key
-      SANDBOX_API_RUNNER_CONTROL_GRPC_SERVER_NAME: sandbox-runner-1
+      SANDBOX_API_RUNNER_CONTROL_GRPC_TLS_SERVER_NAME: sandbox-runner-1
       # Temporary diagnostic: expose /metrics on the private n8n-network listener
       # (no new public port; firewall-independent — internal Docker network only)
       SANDBOX_API_METRICS_ENABLED: "true"
@@ -217,7 +217,7 @@ services:
       SANDBOX_RUNNER_API_KEYS: ${SANDBOX_RUNNER_API_KEY}
       SANDBOX_RUNNER_REGISTRATION_TOKEN: ${SANDBOX_RUNNER_REGISTRATION_TOKEN}
       SANDBOX_RUNNER_API_GRPC_ADDR: sandbox-api:9090
-      SANDBOX_RUNNER_HTTP_BASE_URL: http://sandbox-runner-1:8080
+      SANDBOX_RUNNER_HTTP_BASE_URL: https://sandbox-runner-1:8080
       SANDBOX_RUNNER_CONTROL_GRPC_LISTEN_ADDR: ":9091"
       SANDBOX_RUNNER_CONTROL_GRPC_ADVERTISE_ADDR: sandbox-runner-1:9091
       SANDBOX_RUNNER_ID: sandbox-runner-1
