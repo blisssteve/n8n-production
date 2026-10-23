@@ -39,8 +39,8 @@ services:
           - n8n-postgres
 
   n8n:
-    # :next canary 2.43.3 — digest-pinned to resolved amd64/linux (next==2.43.3) to avoid moving-tag drift
-    image: docker.n8n.io/n8nio/n8n:next@sha256:442668cc8435eefe4a689fa562d08081d0ff8e2957e1cdd37cd48f6e668fad12
+    # Stable 2.44.6 — digest-pinned to linux/amd64 to avoid moving-tag drift
+    image: docker.n8n.io/n8nio/n8n:2.44.6@sha256:845ac21710739d7206086974295f7f93932e0fa8dd87af6d9fb0b7aa0338ad15
     restart: unless-stopped
     depends_on:
       postgres:
@@ -243,8 +243,8 @@ services:
       - n8n-network
 
   task-runners:
-    # :next canary 2.43.3 — digest-pinned to resolved amd64/linux (next==2.43.3) to avoid moving-tag drift
-    image: n8nio/runners:next@sha256:6b3b5fcf0fe884bac3ab6c1f0f8f575ba0acea08493b7ab9c8eec19ba528bf47
+    # Stable 2.44.6 — digest-pinned to linux/amd64 to avoid moving-tag drift
+    image: n8nio/runners:2.44.6@sha256:756230f593498801cebcd8923fd776348196c31a626f109c4da0736989738efe
     restart: unless-stopped
     depends_on:
       - n8n
